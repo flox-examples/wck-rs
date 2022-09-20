@@ -14,6 +14,8 @@ use serde::Deserializer;
 #[clap(author, version, about)]
 
 struct CLI {
+    /// The location to check the weather at.
+    /// Leave empty to check the weather near you
     #[clap(value_parser)]
     location: Option<String>,
 }
