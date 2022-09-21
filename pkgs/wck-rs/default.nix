@@ -1,15 +1,15 @@
 {
   self,
   lib,
-  hostPlatform,
   rustPlatform,
+  hostPlatform,
   # you can add imports here
   openssl,
   libiconv,
   darwin,
 }:
 rustPlatform.buildRustPackage rec {
-  pname = "weather-rs";
+  pname = "wck-rs";
   version = "0.0.0";
   src = self; # + "/src";
 
@@ -22,10 +22,6 @@ rustPlatform.buildRustPackage rec {
       #   "dependency-0.0.0" = lib.fakeSha256;
     };
   };
-
-  # For rust-analyzer support
-  RUST_SRC_PATH="${rustPlatform.rustLibSrc}";
-
   # Non-Rust dependencies of your project can be added in buildInputs. Make sure to import any
   # additional dependencies above
   buildInputs =
