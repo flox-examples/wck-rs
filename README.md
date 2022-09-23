@@ -1,12 +1,12 @@
 # WCK
 
-Check for avert weather conditions
+Check for adverse weather conditions
 
 ## Usage
 
 ```
 wck 0.1.0
-Check for avert weather conditions
+Check for adverse weather conditions
 
 USAGE:
     wck [LOCATION]
