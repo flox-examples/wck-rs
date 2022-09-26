@@ -21,8 +21,18 @@ rustPlatform.buildRustPackage rec {
     # as shown below and running flox build.
     # The build will fail but output the expected sha, which can then be added
     # here
+    # the expected error will look like this: 
+    #
+    #     error: hash mismatch in fixed-output derivation '/nix/store/XXX-dependency-githash.drv':
+    #         specified: sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+    #            got:    sha256-M+otd/fsECgT2IRoMwiDOhxMqVGnCyYr7NtKFKuhVNA=
+    #
+    # If you follow a branch or tag, you might hit this error again in the 
+    # future as a the source moves forward.
+    # It is advisable to therefore specify exact revisions or known stable tags.
     outputHashes = {
-      #   "dependency-0.0.0" = lib.fakeSha256;
+      #   "dependency-0.0.0" = lib.fakeSha256; 
+      "clap-3.2.22" = "sha256-M+otd/fsECgT2IRoMwiDOhxMqVGnCyYr7NtKFKuhVNA";
     };
   };
 
@@ -59,5 +69,6 @@ rustPlatform.buildRustPackage rec {
     pkg-config # for openssl
   ];
 
+  RUST_SRC_PATH = lib.optionalString lib.inNixShell "${rustPlatform.rustLibSrc}";
 
 }
