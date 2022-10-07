@@ -10,7 +10,7 @@
   darwin,
 }:
 rustPlatform.buildRustPackage rec {
-  pname = "wck-rs";
+  pname = "wck";
   version = "0.0.0";
   src = self; # + "/src";
 
