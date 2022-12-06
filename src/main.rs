@@ -200,12 +200,12 @@ impl TryFrom<API> for Hazards {
                 .clone();
             Location { area_name, country }
         };
-        let conditions = value.current_condition.first().ok_or_else(|| anyhow!("No cuuurent conditions found"))?;
+        let conditions = value.current_condition.first().ok_or_else(|| anyhow!("No current conditions found"))?;
 
         let weather = value
             .weather
             .first()
-            .ok_or_else(|| anyhow!("No weather infomration found"))?;
+            .ok_or_else(|| anyhow!("No weather information found"))?;
         let astronomy = weather
             .astronomy
             .first()
